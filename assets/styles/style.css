@@ -1,7 +1,7 @@
+/* Importa la fuente 'Montserrat' desde Google Fonts, utilizada en todo el documento */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -9,27 +9,39 @@
     font-family: "Montserrat", sans-serif;
     font-style: normal;
 }
+/* Estilos generales para todos los elementos: se eliminan márgenes y rellenos, se asegura que el box-sizing sea 'border-box' para un mejor control del diseño, 
+se quita la decoración de texto (por ejemplo, subrayado en enlaces), y se establece la fuente 'Montserrat' como la predeterminada */
 
-body{
+/* Estilo del cuerpo de la página: se aplica un fondo degradado de colores y se añaden márgenes y rellenos para el contenido */
+
+body {
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(89,0,255,1) 20%, rgba(171,0,255,1) 64%);
-
+    margin: 0;
+    padding: 20px;
 }
 
-main{
+/* Estilo para la etiqueta principal <main>: ocupa el 100% del ancho, centrado horizontalmente, con relleno y un margen superior de 100px */
+
+main {
     width: 100%;
     padding: 20px;
     margin: auto;
     margin-top: 100px;
 }
 
-.contenedor__todo{
+/* Contenedor principal: ocupa el 100% del ancho hasta un máximo de 800px, centrado horizontalmente, y con posición relativa para posicionamiento interno */
+
+.container {
     width: 100%;
     max-width: 800px;
     margin: auto;
     position: relative;
 }
 
-.caja__trasera{
+
+/* Caja de fondo (back-box) que contiene elementos de registro/inicio: ocupa el 100% del ancho, se centra el contenido usando flexbox, 
+se aplica un fondo azul/violeta y un filtro de desenfoque para dar un efecto de cristal */
+.back-box {
     width: 100%;
     padding: 10px 20px;
     display: flex;
@@ -37,32 +49,34 @@ main{
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(50px);
     background-color: rgb(92, 0, 191);
-
 }
 
-.caja__trasera div{
+/* Estilo para los divs dentro de la back-box: se aplica un margen, color de texto blanco azulado, y una transición suave para cambios de estilo */
+
+.back-box div {
     margin: 100px 40px;
     color: aliceblue;
     transition: all 500ms;
 }
 
-
-.caja__trasera div p,
-.caja__trasera button{
+.back-box div p,
+.back-box button {
     margin-top: 25px;
 }
 
-.caja__trasera div h3{
+.back-box div h3 {
     font-weight: 400;
     font-size: 26px;
 }
 
-.caja__trasera div p{
+.back-box div p {
     font-size: 16px;
     font-weight: 300;
 }
 
-.caja__trasera button{
+/* Estilo para los botones dentro de la back-box: se añaden rellenos, borde blanco, tamaño de fuente de 14px, fondo transparente, 
+cursor de puntero, sin borde de enfoque, y una transición para cambios de estilo */
+.back-box button {
     padding: 10px 40px;
     border: 2px solid #fff;
     font-size: 14px;
@@ -74,14 +88,16 @@ main{
     transition: all 300ms;
 }
 
-.caja__trasera button:hover{
+
+.back-box button:hover {
     background: #fff;
     color: #4c00ff;
 }
 
-/*Formularios*/
+/* Contenedor de los formularios: se alinean los elementos en el centro, con un ancho máximo de 380px, 
+posicionamiento relativo para facilitar animaciones, y una transición suave de movimiento */
 
-.contenedor__login-register{
+.form-container {
     display: flex;
     align-items: center;
     width: 100%;
@@ -89,12 +105,13 @@ main{
     position: relative;
     top: -185px;
     left: 10px;
-
-    /*La transicion va despues del codigo JS*/
     transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
 }
 
-.contenedor__login-register form{
+/* Estilo de los formularios dentro del contenedor: ocupan todo el ancho disponible, con relleno, fondo blanco azulado, 
+posición absoluta para superposición, y bordes redondeados */
+
+.form-container form {
     width: 100%;
     padding: 80px 20px;
     background: aliceblue;
@@ -102,14 +119,14 @@ main{
     border-radius: 20px;
 }
 
-.contenedor__login-register form h2{
+
+.form-container form h2 {
     font-size: 30px;
     text-align: center;
     margin-bottom: 20px;
     color: #4c00ff;
 }
-
-.contenedor__login-register form input{
+.form-container form input {
     width: 100%;
     margin-top: 20px;
     padding: 10px;
@@ -119,7 +136,7 @@ main{
     outline: none;
 }
 
-.contenedor__login-register form button{
+.form-container form button {
     padding: 10px 40px;
     margin-top: 40px;
     border: none;
@@ -131,47 +148,52 @@ main{
     outline: none;
 }
 
-
-
-
-.formulario__login{
+.login-form {
     opacity: 1;
     display: block;
 }
-.formulario__register{
+
+/* Estilo del formulario de registro: inicialmente oculto */
+
+.register-form {
     display: none;
 }
 
 
+/*RESPONSIVE*/
 
-@media screen and (max-width: 850px){
+    /* Ajusta el margen superior del contenedor principal (main) cuando la pantalla es más pequeña de 850px */
 
-    main{
+@media screen and (max-width: 850px) {
+    main {
         margin-top: 50px;
     }
 
-    .caja__trasera{
+
+    /* Ajusta la caja de fondo (back-box) para pantallas pequeñas: se reduce el ancho máximo, se establece una altura fija, 
+    y los elementos internos se organizan en columna, centrados horizontalmente */
+
+    .back-box {
         max-width: 350px;
         height: 300px;
         flex-direction: column;
         margin: auto;
     }
 
-    .caja__trasera div{
+
+    .back-box div {
         margin: 0px;
         position: absolute;
     }
 
-
-    /*Formularios*/
-
-    .contenedor__login-register{
+    .form-container {
         top: -10px;
         left: -5px;
         margin: auto;
     }
 
-    .contenedor__login-register form{
+    .form-container form {
         position: relative;
     }
 }
+

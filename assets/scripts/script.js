@@ -1,64 +1,65 @@
-//Ejecutando funciones
-document.getElementById("btn__iniciar-sesion").addEventListener("click", iniciarSesion);
-document.getElementById("btn__registrarse").addEventListener("click", register);
-window.addEventListener("resize", anchoPage);
+// Se agregan listeners a los botones para que llamen a la funcion de inicio de sesion y registro
 
-//Declarando variables
-var formulario_login = document.querySelector(".formulario__login");
-var formulario_register = document.querySelector(".formulario__register");
-var contenedor_login_register = document.querySelector(".contenedor__login-register");
-var caja_trasera_login = document.querySelector(".caja__trasera-login");
-var caja_trasera_register = document.querySelector(".caja__trasera-register");
+document.getElementById("btn-login").addEventListener("click", inicioSesion);
+document.getElementById("btn-register").addEventListener("click", registro);
 
-    //FUNCIONES
+//Listener para el ajuste de pagina a cierto tamaño
+window.addEventListener("resize", ajustePagina);
 
-function anchoPage(){
+// variables
+let loginForm = document.querySelector(".login-form");
+let registerForm = document.querySelector(".register-form");
+let formContainer = document.querySelector(".form-container");
+let backBoxLogin = document.querySelector(".back-box-login");
+let backBoxRegister = document.querySelector(".back-box-register");
 
-    if (window.innerWidth > 850){
-        caja_trasera_register.style.display = "block";
-        caja_trasera_login.style.display = "block";
-    }else{
-        caja_trasera_register.style.display = "block";
-        caja_trasera_register.style.opacity = "1";
-        caja_trasera_login.style.display = "none";
-        formulario_login.style.display = "block";
-        contenedor_login_register.style.left = "0px";
-        formulario_register.style.display = "none";   
+// Funciones
+
+function ajustePagina() {
+    if (window.innerWidth > 850) {
+        backBoxRegister.style.display = "block";
+        backBoxLogin.style.display = "block";
+    } else {
+        backBoxRegister.style.display = "block";
+        backBoxRegister.style.opacity = "1";
+        backBoxLogin.style.display = "none";
+        loginForm.style.display = "block";
+        formContainer.style.left = "0px";
+        registerForm.style.display = "none";   
     }
 }
 
-anchoPage();
+ajustePagina();
 
-
-    function iniciarSesion(){
-        if (window.innerWidth > 850){
-            formulario_login.style.display = "block";
-            contenedor_login_register.style.left = "10px";
-            formulario_register.style.display = "none";
-            caja_trasera_register.style.opacity = "1";
-            caja_trasera_login.style.opacity = "0";
-        }else{
-            formulario_login.style.display = "block";
-            contenedor_login_register.style.left = "0px";
-            formulario_register.style.display = "none";
-            caja_trasera_register.style.display = "block";
-            caja_trasera_login.style.display = "none";
-        }
+function inicioSesion() {
+    if (window.innerWidth > 850) {
+        loginForm.style.display = "block";
+        formContainer.style.left = "10px";
+        registerForm.style.display = "none";
+        backBoxRegister.style.opacity = "1";
+        backBoxLogin.style.opacity = "0";
+    } else {
+        loginForm.style.display = "block";
+        formContainer.style.left = "0px";
+        registerForm.style.display = "none";
+        backBoxRegister.style.display = "block";
+        backBoxLogin.style.display = "none";
     }
+}
 
-    function register(){
-        if (window.innerWidth > 850){
-            formulario_register.style.display = "block";
-            contenedor_login_register.style.left = "410px";
-            formulario_login.style.display = "none";
-            caja_trasera_register.style.opacity = "0";
-            caja_trasera_login.style.opacity = "1";
-        }else{
-            formulario_register.style.display = "block";
-            contenedor_login_register.style.left = "0px";
-            formulario_login.style.display = "none";
-            caja_trasera_register.style.display = "none";
-            caja_trasera_login.style.display = "block";
-            caja_trasera_login.style.opacity = "1";
-        }
+function registro() {
+    if (window.innerWidth > 850) {
+        registerForm.style.display = "block";
+        formContainer.style.left = "410px";
+        loginForm.style.display = "none";
+        backBoxRegister.style.opacity = "0";
+        backBoxLogin.style.opacity = "1";
+    } else {
+        registerForm.style.display = "block";
+        formContainer.style.left = "0px";
+        loginForm.style.display = "none";
+        backBoxRegister.style.display = "none";
+        backBoxLogin.style.display = "block";
+        backBoxLogin.style.opacity = "1";
+    }
 }
